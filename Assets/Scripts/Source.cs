@@ -29,8 +29,6 @@ public class Source : MonoBehaviour
     [Header("Nav Mesh Surface")] [SerializeField]
     private NavMeshSurface _navMeshSurface;
     
-    
-    
     private void Start()
     {
         currentPrice = price;
@@ -62,12 +60,19 @@ public class Source : MonoBehaviour
     }
     private void ChangeProgress(int money)
     {
-        currentPrice -= money;
-        if (currentPrice < 0)
+        if (PlayerPrefs.GetInt("Money") == 0) return;
+        if (currentPrice <= 0)
         {
             Buy();
             return;
         }
+
+        if (currentPrice < money)
+        {
+            money = currentPrice;
+        }
+        currentPrice -= money;
+        FindObjectOfType<Source_Manager>().GetComponent<Source_Manager>().UpdateMoney(money);
         UpdateUI();
     }
     private void Buy()
