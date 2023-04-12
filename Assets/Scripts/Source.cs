@@ -16,6 +16,8 @@ public class Source : MonoBehaviour
     [Header("Objects")] 
     [SerializeField] private GameObject sourceObject;
     [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject durationPanel;
+    [SerializeField] private GameObject growPanel;
     [Space(15)]
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI priceText;
@@ -34,6 +36,8 @@ public class Source : MonoBehaviour
         currentPrice = price;
         UpdateUI();
         ChangeObject();
+        durationPanel.SetActive(false);
+        growPanel.SetActive(false);
     }
     private void UpdateUI()
     {
@@ -44,7 +48,7 @@ public class Source : MonoBehaviour
     {
         if (isBought)
         {
-            sourceObject.SetActive(true);
+            StartCoroutine(SetCutActive());
             sourceObject.transform.localScale = Vector3.zero;
             sourceObject.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.2f).SetEase(Ease.InOutBounce);
             sourceObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.2f).SetEase(Ease.InOutBounce).SetDelay(0.2f);
@@ -58,14 +62,23 @@ public class Source : MonoBehaviour
         }
         StartCoroutine(BuildNavMeshCoroutine());
     }
+    private IEnumerator SetCutActive()
+    {
+        sourceObject.SetActive(true);
+        durationPanel.SetActive(true);
+        sourceObject.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        sourceObject.transform.GetChild(0).transform.GetComponent<SphereCollider>().enabled = true;
+    }
     private void ChangeProgress(int money)
     {
-        if (PlayerPrefs.GetInt("Money") == 0) return;
         if (currentPrice <= 0)
         {
             Buy();
             return;
         }
+        if (PlayerPrefs.GetInt("Money") == 0) return;
+        
 
         if (currentPrice < money)
         {

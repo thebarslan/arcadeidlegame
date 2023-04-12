@@ -26,7 +26,6 @@ public class Source_Manager : MonoBehaviour
         PlayerPrefs.SetInt("Money", moneyAmount);
         UpdateUI();
     }
-
     public void UpdateWood(int wood)
     {
         woodAmount += wood;

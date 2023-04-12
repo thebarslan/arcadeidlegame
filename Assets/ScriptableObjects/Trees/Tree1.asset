@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a29c545e488d70458536bbc1b34a2c8, type: 3}
   m_Name: Tree1
   m_EditorClassIdentifier: 
-  growTime: 40
-  woodAmount: 20
-  cutCount: 5
+  growTime: 5
+  woodAmount: 100
+  cutCount: 2
