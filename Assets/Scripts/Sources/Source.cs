@@ -77,9 +77,7 @@ public class Source : MonoBehaviour
             Buy();
             return;
         }
-        if (PlayerPrefs.GetInt("Money") == 0) return;
-        
-
+        if (PlayerPrefs.GetInt("Money") <= 0) return;
         if (currentPrice < money)
         {
             money = currentPrice;

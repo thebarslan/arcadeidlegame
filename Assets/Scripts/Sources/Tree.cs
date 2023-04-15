@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;
@@ -75,13 +73,13 @@ public class Tree : MonoBehaviour
             treeDurationPanel.SetActive(false);
             treeGrowPanel.SetActive(true);
             tree.SetActive(false);
+            _growTime = growTime;
             isGrowing = true;
             return;
         };
         FindObjectOfType<Source_Manager>().GetComponent<Source_Manager>().UpdateWood(cutWoodAmount);
         cutCount--;
         treeDuration.fillAmount = (float)cutCount / (float)totalCutCount;
-        Debug.Log(treeDuration.fillAmount);
     }
     private void GrowTimer()
     {
@@ -145,7 +143,14 @@ public class Tree : MonoBehaviour
             {
                 SpawnWood();
                 ShakeTree();
-                yield return new WaitForSeconds(1.06f);
+                if (cutCount >= 1)
+                {
+                    yield return new WaitForSeconds(1.06f);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(0.05f);
+                }
             }
         }
     }
