@@ -1338,6 +1338,7 @@ GameObject:
   - component: {fileID: 2032469526}
   - component: {fileID: 2032469528}
   - component: {fileID: 2032469525}
+  - component: {fileID: 2032469529}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -1446,10 +1447,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80c0e4eff6e22541b287dfb198f36cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementSpeed: 5
+  playerMovementSpeed: 7.5
   playerRotationSpeed: 540
   _joystick: {fileID: 0}
   _animator: {fileID: 651000430656179093}
+--- !u!114 &2032469529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5897898465951814908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa6a504a5b60b74ca3ed6b12b6aab07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6019674701776721062
 GameObject:
   m_ObjectHideFlags: 0
