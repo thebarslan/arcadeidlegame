@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
     public string itemType;
     public Recipe itemRecipe;
     public int itemCount;
+    public int itemCraftingTime;
 
     private void Start()
     {
@@ -20,5 +21,6 @@ public class Item : MonoBehaviour
         itemSprite = ItemSO.itemSprite;
         itemType = ItemSO.itemType.ToString();
         itemRecipe = ItemSO.recipe;
+        itemCraftingTime = ItemSO.craftingTime;
     }
 }

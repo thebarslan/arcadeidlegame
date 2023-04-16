@@ -12,5 +12,7 @@ public class CraftableItemsSO : ScriptableObject
     public Sprite itemSprite;
     [Space(5)] 
     public Recipe recipe;
-    
+    [Space(5)] 
+    public int craftingTime;
+
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Source
   - Tree
+  - CraftingTable
   layers:
   - Default
   - TransparentFX
