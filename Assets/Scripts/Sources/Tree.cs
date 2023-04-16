@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using Managers;
+using Player;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using TMPro;

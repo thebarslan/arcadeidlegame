@@ -18,3 +18,4 @@ MonoBehaviour:
   recipe:
     wood: 150
     stone: 0
+  craftingTime: 6
